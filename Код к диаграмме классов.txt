@@ -1,0 +1,115 @@
+@startuml
+class "Human" as Human {
+  +name: str
+  +level: int
+  +hp: int
+  +ac: int
+  +mp: int
+  +strenght: int
+  +agility: hp
+  +physique: hp
+  +iq: int
+  +wisdom: int
+  +charisma: int
+  +action: int
+  +baction: int
+  +hit(self, target, technique)
+  +make_saveroll()
+  +is_mx_hp()
+  +is_alive()
+  +roll_d20()
+  +roll_d4()
+  +roll_d6()
+  +roll_d8()
+  +roll_d10()
+  +roll_d12()
+}
+
+class "Warrior" as Warrior {
+  +weapons: dict
+  +keys_weapons: list
+  +skills: dict
+  +keys_skills: list
+  +TBS: int
+  +mx_TBS: int
+  +techniques: dict
+  +keys_techniques: list
+  +start_action: int
+  +start_baction: int
+  +analysis: int
+  +mx_analysis: int
+  +analysising(difficulty)
+  +analysising_garou(total_analysis)
+  +analysising_bug_bulul(total_analysis, vul_gul_save)
+  +chocie_weapon()
+  +choice_technique()
+  +choice_skill()
+  +use_skill(total_skill)
+  +attack(weapon, target, tehcnique)
+  +block_turn(enemy)
+}
+
+class "Bard" as Bard {
+  +saveroll: int
+  +spells: list
+  +mx_mp: int
+  +start_action: int
+  +start_baction: int
+  +choice_spell()
+  +heal(target)
+  +attack(target, total_spell)
+  +block_turn(enemy)
+}
+
+class "Magician" as Magician {
+  +saveroll: int
+  +weapons: str
+  +spells: list
+  +mx_mp: int
+  +start_action: int
+  +start_baction: int
+  +choice_weapon_or_spell()
+  +choice_spell(wos)
+  +attack(wos, target, total_spell)
+  +block_turn(enemy)
+}
+
+class "Barbarian" as Barbarian {
+  +weapons: list
+  +skills: str
+  +start_action: int
+  +start_baction: int
+  +start_strenght: int
+  +choice_weapon()
+  +choice_skills()
+  +attack(target, total_weapon)
+  +block_turn(enemy)
+}
+
+class "Boss" as Boss {
+  +saveroll: int
+  +weapons: list
+  +artifacts: list
+  +skills: list
+  +spells: list
+  +mx_mp: int
+  +start_action: int
+  +start_baction: int
+  +choice_weapon_or_spell()
+  +choice_weapon(wos)
+  +choice_spell(wos)
+  +choice_artifact()
+  +choice_skill()
+  +attack(wos, target, total_weapon, total_spell)
+  +use_skill(total_skill, target)
+  +use_artifact(total_acrtifact)
+  +block_turn(enemy)
+}
+
+
+Bard <|-- Human: Наследование
+Warrior <|-- Human : Наследование
+Magician <|-- Human: Наследование
+Barbarian <|-- Human: Наследование
+Boss <|-- Human: Наследование
+@enduml
